@@ -1,0 +1,121 @@
+.p_input {
+    color: white !important;
+}
+
+label {
+    color: white !important;
+}
+
+.sign-up {
+    color: white;
+}
+
+.notify {
+    z-index: 11111 !important;
+}
+
+.sidebar .sidebar-brand-wrapper .sidebar-brand img {
+    margin: 0 !important;
+}
+
+.admin-home .card {
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.admin-home .card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgb(2, 27, 59);
+    z-index: -1;
+    transition: all .3s;
+}
+
+.admin-home .card:hover::after {
+    width: 100%;
+}
+
+input:focus {
+    color: white !important;
+}
+input {
+    text-transform: lowercase;
+}
+table{
+    text-transform: capitalize;
+    color: white !important;
+}
+::placeholder{
+    color: #f5f8f4 !important;
+    text-transform: capitalize;
+}
+select{
+    color: white !important;
+}
+
+
+/* sidebar */
+/*------------------------*/
+
+/* category */
+.sidebar .nav .category.active>.nav-link {
+    background: #0f1015;
+    position: relative;
+}
+
+.sidebar .nav .category .sub-category {
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0 0 0 3.25rem;
+    list-style: none;
+}
+
+.sidebar .nav.sub-category .nav-item .nav-link{
+    color: #6c7293;
+    padding: 0.5rem 0.35rem;
+    position: relative;
+    font-size: 0.855rem;
+    line-height: 1;
+    height: auto;
+    border-top: 0;
+}
+
+
+.sidebar .nav.sub-category .nav-item .nav-link.active {
+    color: #ffffff;
+    background: transparent;
+}
+/* end category */
+/*###############*/
+/* products */
+.sidebar .nav .products.active>.nav-link {
+    background: #0f1015;
+    position: relative;
+}
+.sidebar .nav .products .sub-products {
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0 0 0 3.25rem;
+    list-style: none;
+}
+
+.sidebar .nav .sub-products .nav-item .nav-link{
+    color: #6c7293;
+    padding: 0.5rem 0.35rem;
+    position: relative;
+    font-size: 0.855rem;
+    line-height: 1;
+    height: auto;
+    border-top: 0;
+}
+.sidebar .nav .sub-products .nav-item .nav-link.active {
+    color: #ffffff;
+    background: transparent;
+}
+/* end products */
+/*#####################*/
