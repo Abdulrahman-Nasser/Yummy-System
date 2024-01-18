@@ -117,5 +117,12 @@ select{
     color: #ffffff;
     background: transparent;
 }
+
+.d-grid button{
+    background-color: transparent;
+}
+.d-grid button:hover{
+    box-shadow: 0 0 8px whitesmoke;
+}
 /* end products */
 /*#####################*/

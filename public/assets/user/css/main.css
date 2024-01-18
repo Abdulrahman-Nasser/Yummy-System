@@ -939,6 +939,14 @@ section {
     box-shadow: 0 0 15px #b6b6bf;
     color: white;
 }
+.empty-menu{
+    cursor: pointer;
+    transition: all .3s;
+}
+.empty-menu:hover{
+    background-color: #ff2020 !important;
+    color: white !important;
+}
 /*--------------------------------------------------------------
 # Events Section
 --------------------------------------------------------------*/

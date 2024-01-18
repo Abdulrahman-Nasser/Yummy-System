@@ -30,7 +30,8 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title text-center">Create New Product</h4>
-                                    <form class="form-sample"  action="{{ route('admin.addProduct') }}" method="POST" enctype="multipart/form-data">
+                                    <form class="form-sample" action="{{ route('admin.addProduct') }}" method="POST"
+                                        enctype="multipart/form-data">
                                         @csrf
                                         <div class="row justify-content-center">
                                             <div class="col-md-6">
@@ -87,9 +88,30 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-12">
+                                            <div class="col-md-6">
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label">Select Category</label>
+                                                    <label class="col-sm-3 col-form-label">Menu Type</label>
+                                                    <div class="col-sm-12">
+                                                        <select name="menu_type" id=""
+                                                            class="form-control @error('menu_type') is-invalid @enderror ">
+                                                            @foreach ($category as $data)
+                                                                <option value="{{ $data->filter }}">{{ $data->filter }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+
+                                                    @error('menu_type')
+                                                        <span class="invalid-feedback mt-3" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <label class="col-sm-3 col-form-label">Select Category</label>
                                                     <div class="col-sm-12">
                                                         <select name="category_id" id=""
                                                             class="form-control @error('category_id') is-invalid @enderror ">

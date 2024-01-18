@@ -41,12 +41,11 @@
                                             <form action="{{ route('admin.deleteAllProducts') }}" method="POST">
                                                 @csrf
                                                 <div class="form-group">
-                                                    <label for=""> Delete Products using Category ID  </label>
+                                                    <label for=""> Delete Products using Category ID </label>
                                                     <select name="category" class="form-control" style="width: 100%;"
                                                         required>
-                                                        @foreach ($category as $data )
-
-                                                        <option value="{{ $data->id }}">{{ $data->name }}</option>
+                                                        @foreach ($category as $data)
+                                                            <option value="{{ $data->id }}">{{ $data->name }}</option>
                                                         @endforeach
                                                         <!-- Add your options here -->
                                                     </select>
@@ -96,6 +95,8 @@
                                                     <th> Name </th>
                                                     <th> Price </th>
                                                     <th> Image </th>
+                                                    <th> Menu Type </th>
+                                                    <th> Category </th>
                                                     <th> Category ID </th>
                                                     <th>Registeration Date</th>
                                                     <th colspan="2">Action</th>
@@ -113,66 +114,55 @@
                                                             <img src="/uploads/products/img/{{ $data->image }}"
                                                                 style="width: 50px; height: 50px;" alt="">
                                                         </td>
+                                                        <td> {{ $data->filter }} </td>
+                                                        <td> {{ $data->filter }} </td>
+
                                                         <td> {{ $data->category_id }} </td>
                                                         <td> {{ $data->created_at }} </td>
                                                         <td>
                                                             <div class="icons">
                                                                 <div class="d-flex justify-content-center">
-                                                                    <a href="{{ route('admin.getEditProduct', $data->id) }}"
-                                                                        class="btn btn-warning text-center mx-2"><i
-                                                                            class="bi bi-pencil"></i></a>
+                                                                    <a href="{{ route('admin.getEditProduct', $data->id) }}" class="btn btn-warning text-center mx-2">
+                                                                        <i class="bi bi-pencil"></i>
+                                                                    </a>
 
-                                                                    {{-- delete category --}}
+                                                                    {{-- Delete product --}}
                                                                     <div class="delete-product">
-
-                                                                        <div class="modal fade" id="deleteProducts"
-                                                                            aria-hidden="true"
-                                                                            aria-labelledby="exampleModalToggleLabel"
-                                                                            tabindex="-1">
+                                                                        <div class="modal fade" id="deleteProducts-{{ $data->id }}" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
                                                                             <div class="modal-dialog modal-dialog-centered">
                                                                                 <div class="modal-content">
                                                                                     <div class="modal-header">
-                                                                                        <h1 class="modal-title fs-5 text-danger"
-                                                                                            id="exampleModalToggleLabel">
-                                                                                            Delele Product -
-                                                                                            {{ $data->name }}</h1>
-                                                                                        <button type="button"
-                                                                                            class="btn-close"
-                                                                                            data-bs-dismiss="modal"
-                                                                                            aria-label="Close"></button>
+                                                                                        <h1 class="modal-title fs-5 text-danger" id="exampleModalToggleLabel">
+                                                                                            Delete Product - {{ $data->name }}</h1>
+                                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                                     </div>
-                                                                                    <div
-                                                                                        class="modal-body text-light text-center">
-                                                                                        are you sure to delete Product -
-                                                                                        {{ $data->name }} ?
+                                                                                    <div class="modal-body text-light text-center">
+                                                                                        Are you sure you want to delete Product - {{ $data->name }}?
                                                                                     </div>
-                                                                                    <div
-                                                                                        class="modal-footer text-center m-auto">
-                                                                                        <a href="{{ route('admin.deleteProduct', $data->id) }}"
-                                                                                            class="btn btn-danger text-center"><i
-                                                                                                class="bi bi-trash"></i>
-                                                                                            Delete</a>
-
+                                                                                    <div class="modal-footer text-center m-auto">
+                                                                                        <a href="{{ route('admin.deleteProduct', $data->id) }}" class="btn btn-danger text-center">
+                                                                                            <i class="bi bi-trash"></i> Delete
+                                                                                        </a>
                                                                                         <div class="form-group mt-0">
-                                                                                            <a class="btn btn-primary mt-3"
-                                                                                                data-bs-dismiss="modal"><i
-                                                                                                    class="bi bi-x"></i>
-                                                                                                close</a>
+                                                                                            <button type="button" class="btn btn-primary mt-3" data-bs-dismiss="modal">
+                                                                                                <i class="bi bi-x"></i> Close
+                                                                                            </button>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
 
-                                                                        <button class="btn btn-danger"
-                                                                            data-bs-target="#deleteProducts"
-                                                                            data-bs-toggle="modal"><i
-                                                                                class="bi bi-trash"></i></button>
+                                                                        <button class="btn btn-danger" data-bs-target="#deleteProducts-{{ $data->id }}" data-bs-toggle="modal">
+                                                                            <i class="bi bi-trash"></i>
+                                                                        </button>
                                                                     </div>
-
                                                                 </div>
                                                             </div>
                                                         </td>
+
+
+
                                                     </tr>
                                                 @empty
                                                     <div

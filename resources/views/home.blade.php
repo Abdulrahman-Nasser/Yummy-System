@@ -235,8 +235,9 @@
                                     </a>
                                 </div><!-- Menu Item -->
                             @empty
-                                <div class="alert alert-danger p-5">
-                                    NO Products To View ...
+                                <div class="alert alert-danger bg-transparent text-danger text-center m-0 empty-menu">
+                                    <strong><b> Menu is Empty !.. May be Removed by Admin
+                                        </b></strong>
                                 </div>
                             @endforelse
                         </div>

@@ -35,6 +35,7 @@ class productController extends Controller
             'name' => "required|string",
             'price' => 'required',
             'image_file' => 'required|mimes:png,jpg,jpeg',
+            'menu_type' => 'required|string',
             'category_id' => 'required|integer'
         ]);
 
@@ -58,6 +59,7 @@ class productController extends Controller
         $product->id = $newProductId; // Assign the incremented ID
         $product->name = $request->name;
         $product->price = $request->price;
+        $product->filter = $request->menu_type;
         $product->category_id = $request->category_id;
 
         // image upload
